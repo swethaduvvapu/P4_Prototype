@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Court Fees</title>
+    <style>
+        /* Basic styling for the logo bar and sidebar */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #logo-bar {
+            background-color: #415a8d;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            height: 100px; /* Increased height for the logo bar */
+        }
+        #sidebar {
+            width: 240px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            height: 100%;
+        }
+        #content {
+            margin-left: 220px;
+            padding: 20px;
+            margin-top: -25px;
+        }
+        /* Style for the navigation menu items */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .submenu {
+            text-decoration:underline;
+        }
+        .submenuItem {
+            padding: 8px;
+        }
+
+        .menuItem {
+            padding: 6%;
+            text-align: left;
+            position: relative; /* Added for positioning the dropdown */
+            transition: all 0.2s;
+        }
+        .menuItemHome {
+            padding: 6%;
+            text-align: left;
+            position: relative; /* Added for positioning the dropdown */
+            transition: all 0.2s;
+        }
+        .menuItem:hover {
+            background-color: #444;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Style for the dropdown menus */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            padding: 10px;
+            max-width:fit-content;
+            width: 100%;
+            z-index: 1;
+        }
+        li:hover .dropdown {
+            display: block;
+        }
+        /* Shift down effect */
+        .menuItem:hover ~ .menuItem {
+            transform: translateY(300px);
+        }
+        /* Style for the input field */
+        #text-input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #eee;
+        }
+        .tab-content {
+            display: none;
+        }
+
+        #calculateBtn {
+            background-color: green;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #calculatoroutput {
+            display: inline-block;
+            width: 70px;
+            padding: 10px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo-bar">
+        <h1>Virginia's Judicial System</h1>
+    </div>
+    
+    <div id="sidebar">
+        <!-- icons for sidebar menu -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <input type="text" id="text-input" placeholder="Search" style=" width: 196px;">
+        <script>
+            document.getElementById("text-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    performSearch();
+                }
+            });
+
+            function performSearch() {
+                var userInput = document.getElementById("text-input").value.toLowerCase();
+
+                if (userInput.includes("magistrate") || userInput.includes("complaint")) {
+                    window.location.href = "magistrateservices.html";
+                } else if (userInput.includes("fee") || userInput.includes("calculate")) {
+                    window.location.href = "calculatefees.html";
+                } else {
+                    alert("No search results found.");
+                }
+            }
+        </script>
+        
+        <ul>
+            <li class="menuItemHome"><i class="fa fa-fw fa-home"></i><a href="index.html">     Home</a>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-gavel"></i><a href="#">     Court Services</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"><a href="pg.html">Supreme Court of Virginia</a></li>
+                        <li class="submenuItem"><a href="pg.html">Court of Appeals of Virginia</a></li>
+                        <li class="submenuItem"><a href="pg.html">Circuit Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">General District Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">Juvenile and Domestic Relations District Courts</a></li>
+                        <li class="submenuItem"><a href="magistrateservices.html">Magistrate Court</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-credit-card"></i><a href="#">     Payment & File Services</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"></i><a href="calculatefees.html">Calculate Court Fees</a></li>
+                        <li class="submenuItem"><a href="pg.html">Pay Traffic Fees and Offenses</a></li>
+                        <li class="submenuItem"><a href="pg.html">Assistance with Protective Order (I-CAN!)</a></li>
+                        <li class="submenuItem"><a href="pg.html">Electronic Voucher Payment System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Appellate Courts Electronic Filing System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Judiciary E-Filing System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Date of Birth Confirmation</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-book"></i><a href="#">     Directories</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"><a href="#">Not Implemented</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-calendar"></i><a href="#">     Programs</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"><a href="#">Not Implemented</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-question"></i><a href="#">     Help and FAQ</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"><a href="pg.html">Glossary of Terms</a></li>
+                        <li class="submenuItem"><a href="pg.html">FAQs</a></li>
+                        <li class="submenuItem"><a href="pg.html">Site Feedback Form</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="content" style="padding:3%">
+        <div id="info">
+            <p ><a href="index.html" style="color: black;">Home</a> > Payment & File Services > <a href="calculatefees.html" style="color: black;">Calculate Court Fees</a></p>
+            <h3>Circuit Court Civil Filing Fee Calculation</h3>
+            <b>Note: </b>If you have specific questions about the calculations or if the case type is not listed, contact the civil division of your local circuit court.
+           <!-- <br>
+            <h4>Forms for Civil Cases:</h4>
+            *Please note that most civil cases filed in the Circuit Court are commenced by a complaint or petition, not a standard form. However, there are some Circuit Court forms that may be utilized. For a list of Circuit Court forms, click here: 
+            <a href="#" class="hyperlink">Circuit Court Forms: Civil</a> <br> <br>
+            The only District Court form that may be used in Circuit Court for civil cases is Form DC-472. If this form is needed, click here: 
+            <a href="#" class="hyperlink">Form DC-472- Petition for Reinstatement of Driving Privileges -Failure to Satisfy Judgement</a> <br> <br>
+            <a href="#" class="hyperlink">Call the circuit court to see if FORM CC-1416 Cover Sheet For Filing Civil Actions required. If so, click here FORM CC- 1416</a> <br>
+            If a form is not available for your filing type, you may need to seek the advice of an attorney.
+        </div> -->
+        <br>
+        <br>
+        <hr>
+        <br>
+        <!-- START OF CALCULATION FORM -->
+        <div id="calculator" class="shadow">
+            <div id="calculatorform" style="border-bottom: 1px solid #000">
+                <b>Circuit Courts:</b>
+                <select id="circuitcourt" required>
+                    <option value="" disabled selected>Select Court</option>
+                    <optgroup label="Recent">
+                        <option value="loudoun">Loudoun Circuit</option>
+                        <option value="fairfax">Fairfax Circuit</option>
+                    </optgroup>
+                    <optgroup label="All">
+                        <option value="other">Accomack Circuit</option>
+                        <option value="other">Albemarle Circuit</option>
+                        <option value="other">Alexandria Circuit</option>
+                        <option value="other">Alleghany Circuit</option>
+                        <option value="other">Appomattox Circuit</option>
+                        <option value="other">Arlington Circuit</option>
+                        <option value="other">Augusta Circuit</option>
+                        <option value="other">Bath Circuit</option>
+                        <option value="other">Bedford Circuit</option>
+                        <option value="other">Other Circuits Not Implemented</optioxn>
+                        <!-- Add the circuit courts here -->
+                    </optgroup>
+                </select>
+                <br>
+                <br>
+                <b>Step 1) </b> What type of civil case do you want to file?
+                <select id="casetype" required>
+                    <option value="" disabled selected>Select Case Type</option>
+                        <option value="other">Accounting</option>
+                        <option value="adoptiondom">Adoption - Domestic</option>
+                        <option value="other">Adoption - Foreign</option>
+                        <option value="other">Aid and Guidance</option>
+                        <option value="other">Ammend Vital Record</option>
+                        <option value="other">Annexation</option>
+                        <option value="other">Annulment</option>
+                        <option value="other">Other Case Types Not Implemented</option>
+                    </optgroup>
+                </select>
+                <br>
+                <br>
+                <b>Step 2) </b> If you are filing a civil action for the award of monetary damages, enter the amount you are seeking to recover (i.e, lawsuit amount).
+                <br>
+                <input type="text" id="damages" placeholder="$" pattern="[0-9]*" inputmode="numeric" style="margin-left: 59px; margin-top: 5px;">
+                <br>
+                <br>
+                <b>Step 3) </b> Do you want to have the Virginia sheriff or high constable deliver a copy of the civil case to the Defendant/Respondent at the address you provide?
+                <br>
+                <div>
+                    <label>
+                        <input type="radio" name="yesnosheriff" value="yes" style="margin-left:59px;"> Yes
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="yesnosheriff" value="no" style="margin-left:59px;"> No (Press the calculate button)
+                    </label>
+                </div>
+                <br>
+                <div style="margin-left:59px; margin-bottom:-17px;">If Garnishment or Interrogatory, is a new levy of FiFa needed?</div>
+                <br>
+                <div>
+                    <label>
+                        <input type="radio" name="yesnofifa" value="yes" style="margin-left: 59px;"> Yes
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="yesnofifa" value="no" style="margin-left:59px;"> No (Press the calculate button)
+                    </label>
+                </div>
+                <br>
+
+                <b>Step 4) </b> How many defendants/respondents are to be served by the Virginia sheriff or high constable? (In State)
+                <br>
+                <input type="text" id="defendants" pattern="[0-9]*" inputmode="numeric" placeholder="#" style="margin-left: 59px; margin-top: 5px;">
+                <br>
+
+            </div>    
+            <br>
+            <div id="calculateBtnContainer" style="display: flex; flex-direction: row; align-items: center;">
+                <button id="calculateBtn" onclick="calculateFees()">Calculate</button>
+                <div id="calculatoroutput">
+                    <!-- Output content will be displayed here -->
+                </div>
+            </div>
+        </div>
+        <script>
+            function calculateFees() {
+                var selectedCourt = document.getElementById("circuitcourt").value;
+                var selectedCaseType = document.getElementById("casetype").value;
+    
+                if (selectedCourt && selectedCaseType) {
+                    var totalFees = (selectedCourt === "fairfax" && selectedCaseType === "adoptiondom") ? 91 : 86;
+    
+                    var outputElement = document.getElementById("calculatoroutput");
+                    outputElement.innerHTML = "Total Fees: $" + totalFees;
+                    outputElement.style.display = "block";
+                } else {
+                    alert("Please select both the court and case type before calculating fees.");
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

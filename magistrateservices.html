@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magistrate Services</title>
+    <style>
+        /* Basic styling for the logo bar and sidebar */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #logo-bar {
+            background-color: #415a8d;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            height: 100px; /* Increased height for the logo bar */
+        }
+        #sidebar {
+            width: 240px;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            height: 100%;
+        }
+        #content {
+            margin-left: 220px;
+            padding: 20px;
+            margin-top: -25px;
+        }
+        /* Style for the navigation menu items */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .submenu {
+            text-decoration:underline;
+        }
+        .submenuItem {
+            padding: 8px;
+        }
+
+        .menuItem {
+            padding: 6%;
+            text-align: left;
+            position: relative; /* Added for positioning the dropdown */
+            transition: all 0.2s;
+        }
+        .menuItemHome {
+            padding: 6%;
+            text-align: left;
+            position: relative; /* Added for positioning the dropdown */
+            transition: all 0.2s;
+        }
+        .menuItem:hover {
+            background-color: #444;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Style for the dropdown menus */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            padding: 10px;
+            max-width:fit-content;
+            width: 100%;
+            z-index: 1;
+        }
+        li:hover .dropdown {
+            display: block;
+        }
+        /* Shift down effect */
+        .menuItem:hover ~ .menuItem {
+            transform: translateY(300px);
+        }
+        /* Style for the input field */
+        #text-input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .hyperlink {
+            color:black; 
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="logo-bar">
+        <h1>Virginia's Judicial System</h1>
+    </div>
+    
+    <div id="sidebar">
+        <!-- icons for sidebar menu -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <input type="text" id="text-input" placeholder="Search" style=" width: 196px;">
+        <script>
+            document.getElementById("text-input").addEventListener("keyup", function(event) {
+                if (event.key === "Enter") {
+                    performSearch();
+                }
+            });
+
+            function performSearch() {
+                var userInput = document.getElementById("text-input").value.toLowerCase();
+
+                if (userInput.includes("magistrate") || userInput.includes("complaint")) {
+                    window.location.href = "magistrateservices.html";
+                } else if (userInput.includes("fee") || userInput.includes("calculate")) {
+                    window.location.href = "calculatefees.html";
+                } else {
+                    alert("No search results found.");
+                }
+            }
+        </script>
+        
+        <ul>
+            <li class="menuItemHome"><i class="fa fa-fw fa-home"></i><a href="index.html">     Home</a>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-gavel"></i><a href="#">     Court Services</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"><a href="pg.html">Supreme Court of Virginia</a></li>
+                        <li class="submenuItem"><a href="pg.html">Court of Appeals of Virginia</a></li>
+                        <li class="submenuItem"><a href="pg.html">Circuit Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">General District Courts</a></li>
+                        <li class="submenuItem"><a href="pg.html">Juvenile and Domestic Relations District Courts</a></li>
+                        <li class="submenuItem"><a href="magistrateservices.html">Magistrate Court</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-credit-card"></i><a href="#">     Payment & File Services</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"></i><a href="calculatefees.html">Calculate Court Fees</a></li>
+                        <li class="submenuItem"><a href="pg.html">Pay Traffic Fees and Offenses</a></li>
+                        <li class="submenuItem"><a href="pg.html">Assistance with Protective Order (I-CAN!)</a></li>
+                        <li class="submenuItem"><a href="pg.html">Electronic Voucher Payment System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Appellate Courts Electronic Filing System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Judiciary E-Filing System</a></li>
+                        <li class="submenuItem"><a href="pg.html">Virginia Date of Birth Confirmation</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-book"></i><a href="#">     Directories</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"><a href="#">Not Implemented</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-calendar"></i><a href="#">     Programs</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"><a href="#">Not Implemented</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="menuItem"><i class="fa fa-fw fa-question"></i><a href="#">     Help and FAQ</a>
+                <div class="dropdown">
+                    <ul class="submenu">
+                        <li class="submenuItem"><a href="pg.html">Glossary of Terms</a></li>
+                        <li class="submenuItem"><a href="pg.html">FAQs</a></li>
+                        <li class="submenuItem"><a href="pg.html">Site Feedback Form</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+   
+    <div id="content" style="padding:3%">
+        <p ><a href="index.html" style="color: black;">Home</a> > Court Services > <a href="magistrateservices.html" style="color: black;">Magistrate Court</a></p>
+        <h3>Magistrate Services</h3>
+        <a href="pg.html" style="color:blue;" class="hyperlink">About the Magistrate Court</a>
+
+        <div>
+            <h4>Contact Information: </h4>
+            <ul class="bulletedul">
+                <li>
+                    Director - Jonathan Green<br>Phone - (804) 786-6455
+                </li>
+                <li>Administrative Assistant - Jennifer Heishman <br> Phone - (804) 786-8476 <br> Email: magistrateservices-adminsupport@vacourts.gov</li>
+                <li>
+                    <a href="pg.html" style="color:blue;"  class="hyperlink">Regional Magistrate Supervisors</a>
+                </li>
+                <li>
+                    <a href="pg.html" style="color:blue;" class="hyperlink">Chief Magistrates</a>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Complaint Procedure:</h4>
+            <ul>
+                <li><a href="complaint_form_inst.pdf" style="color:blue;"  class="hyperlink">Instructions for Filing Complaint</a></li>
+                <li><a href="complaint_form.pdf" style="color:blue;" class="hyperlink">Magistrate Complaint Form</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Organizational Chart and Regions:</h4>
+            <ul>
+                <li><a href="pg.html" style="color:blue;" class="hyperlink">Magistrate System Organizational Chart</a></li>
+                <li><a href="pg.html" style="color:blue;" class="hyperlink">Map Showing Virginia's Magisterial Regions</a> <br> </li>
+            </ul>
+        </div>
+
+        <!-- <div>
+            <h4>Resources and Reference Materials</h4>f
+            <ul>
+                <li><a href="#" class="hyperlink">Americans with Disabilities Act (ADA)</a> <br> Provides basic information about the requirements fo the ADA as they pertain to Virginia's Judicial System, including how to request an accommodation.</li>
+                <li><a href="#" class="hyperlink">Canons of Conduct for Virginia's Magistrates</a></li>
+                <li><a href="#" class="hyperlink">Chapter 3 of Title 19.2 of the Code of Virginia</a> <br> Entitled "Magistrates," this Chapter addresses the appointment, supervision, jurisdiction, and powers of magistrates</li>
+                <li><a href="#" class="hyperlink">Magistrate Manual</a></li>
+            </ul>    
+        </div> -->
+    </div>
+</body>
+</html>
